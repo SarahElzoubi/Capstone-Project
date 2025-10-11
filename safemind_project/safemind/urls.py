@@ -15,8 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings #for picture media !!!
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('main_app.urls')),
 ]
+
+#only for development to let django serve uplaoded images (journa images in our case) directly from my laptop (local machine) , so we can see them while testing the app
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

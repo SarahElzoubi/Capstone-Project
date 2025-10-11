@@ -75,9 +75,13 @@ WSGI_APPLICATION = 'safemind.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'gamingconsoles',
+       "USER": "postgres",
+       "PASSWORD": "000000",
+       "HOST": "localhost",
+       "PORT": "5432",
+   }
 }
 
 
@@ -121,3 +125,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+# Since we added an image feild in the moduel JournalEntry , we need to show django where to store and serve uploaded images ,Django can't do this on his own 
+import os
+BASE_DIR= os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_URL='/media/' #the URL used to access  media in templates
+MEDIA_ROOT=os.path.join(BASE_DIR , 'media') #where to store the images physically in my server 
+
+
+
