@@ -29,4 +29,7 @@
   <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
 </section>
 
+<section>
+  <a href="{% url 'journal_update' journal.pk %}">Edit</a>
+</section>
 {% endblock %}

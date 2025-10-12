@@ -12,6 +12,7 @@ from .forms import JournalEntryForm
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import JournalEntry
+from django.urls import reverse
 
 
 
@@ -116,3 +117,18 @@ def journal_create(request):
     else:
         form = JournalEntryForm()
     return render(request, 'journals/journal_create.html', {'form': form})
+
+@login_required
+def journal_update(request, pk):
+    journal = get_object_or_404(JournalEntry, pk=pk, user=request.user)
+    if request.method == 'POST':
+        form = JournalEntryForm(request.POST, request.FILES, instance=journal)
+        if form.is_valid():
+            journal = form.save(commit=False)
+            journal.user = request.user
+            journal.save()
+            form.save_m2m()  # save ManyToMany moods
+            return redirect('journal_detail', pk=journal.pk)
+    else:
+        form = JournalEntryForm(instance=journal)
+    return render(request, 'journals/journal_update.html', {'form': form})
