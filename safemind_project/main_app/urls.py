@@ -10,4 +10,5 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name="main_app/index.html"), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),  
     path('signup/', views.signup, name='signup'),
+    path('journals/<int:pk>/', views.journal_detail, name='journal_detail'),
 ]

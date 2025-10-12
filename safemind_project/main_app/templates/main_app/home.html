@@ -1,0 +1,32 @@
+{% extends 'main_app/base.html' %} {% block content %}
+
+<section>
+  <h1>My Journals</h1>
+</section>
+
+<section class="page-header">
+  <div><h3>Tip of the day</h3></div>
+</section>
+
+<section class="journal-list">
+  {% for journal in journals %}
+  <a href="{% url 'journal_detail' journal.id %}">
+    <div class="journal-card" style="border: 2px solid blue; width: 230px">
+      {% if journal.image %}
+      <img
+        src="{{ journal.image.url }}"
+        class="journal-image"
+        width="100px"
+        height="100px"
+      />
+      {% endif %}
+      <h2>{{ journal.title }}</h2>
+      <p>Date & Time : {{ journal.created_at|date:"M d, Y H:i" }}</p>
+    </div>
+  </a>
+  {% empty %}
+  <p>No journals yet.</p>
+  {% endfor %}
+</section>
+
+{% endblock %}

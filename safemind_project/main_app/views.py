@@ -5,9 +5,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login , authenticate
 
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.contrib import messages
 
-def home(request):
-    return HttpResponse("heeey")
 
 
 def about(request):
@@ -25,6 +26,37 @@ def index(request):
         form = AuthenticationForm()
     
     return render(request, 'main_app/index.html', {'form': form})
+"""""
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+
+def signup(request):
+    error_message = None
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        email = request.POST.get('email')  # get email from POST
+
+        # Check if email already exists
+        if User.objects.filter(email=email).exists():
+            error_message = "Email already taken"
+        elif form.is_valid():
+            user = form.save(commit=False)  # don't save yet
+            user.email = email  # set email
+            user.save()  # now save to DB
+            login(request, user)
+            return redirect('home')
+        else:
+            error_message = "Please correct the errors below."
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'main_app/signup.html', {
+        'form': form,
+        'error_message': error_message
+    })"""""
 
 
 def signup(request):
@@ -44,3 +76,25 @@ def signup(request):
         'form': form,
         'error_message': error_message
     })
+
+"""
+from .models import JournalEntry
+from django.contrib.auth.decorators import login_required
+@login_required
+def home(request):
+    journals = JournalEntry.objects.filter(user=request.user).order_by('-created_at')
+    return render(request, 'main_app/home.html', {'journals': journals})"""
+
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import JournalEntry
+
+def home(request):
+    # Get only journals for the current logged-in user
+    journals = JournalEntry.objects.filter(user=request.user).order_by('created_at')
+    return render(request, "main_app/home.html", {"journals": journals})
+
+@login_required
+def journal_detail(request, pk):
+    journal = get_object_or_404(JournalEntry, pk=pk, user=request.user)
+    return render(request, 'journals/journal_detail.html', {'journal': journal})

@@ -1,0 +1,15 @@
+{% extends 'main_app/base.html' %} {% block content %}
+<!--I should make this a button with an image later  -->
+<a href="{% url 'home' %}">Back to Journals</a>
+<section class="journal-detail">
+  <h1>{{ journal.title }}</h1>
+  <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
+
+  {% if journal.image %}
+  <img src="{{ journal.image.url }}" alt="Journal image" />
+  {% endif %}
+
+  <p>{{ journal.journal }}</p>
+</section>
+
+{% endblock %}
