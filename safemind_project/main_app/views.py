@@ -13,8 +13,11 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import JournalEntry
 from django.urls import reverse
-
-
+from .models import TipReminder
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+from .models import JournalEntry
+import random
 
 def about(request):
     return render(request,'about.html')
@@ -95,12 +98,19 @@ def home(request):
 def home(request):
     # Get only journals for the current logged-in user
     journals = JournalEntry.objects.filter(user=request.user).order_by('created_at')
-    return render(request, "main_app/home.html", {"journals": journals})
+    #tips = TipReminder.objects.first()
+   # tips = TipReminder.objects.all().order_by('-created_at')[:5]  # show latest 5 notes
+    tips = list(TipReminder.objects.all())
+    tip = random.choice(tips) if tips else None
+    return render(request, "main_app/home.html", {"journals": journals, "tip": tip})
+ 
 
 @login_required
 def journal_detail(request, pk):
     journal = get_object_or_404(JournalEntry, pk=pk, user=request.user)
     return render(request, 'journals/journal_detail.html', {'journal': journal})
+
+
 
 
 
@@ -178,3 +188,4 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
     
     return render(request, 'profiles/change_password.html', {'form': form})
+

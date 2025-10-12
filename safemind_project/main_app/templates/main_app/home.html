@@ -5,7 +5,18 @@
 </section>
 
 <section class="page-header">
-  <div><h3>Tip of the day</h3></div>
+  <div class="tips-section">
+    <h2>Tip of the day</h2>
+
+    {% if tip %}
+    <div class="tip-card">
+      <p>{{ tip.content }}</p>
+      <!-- <small>{{ tips.created_at|date:"M d, Y" }}</small>-->
+    </div>
+    {% else %}
+    <p>No tips available yet :(</p>
+    {% endif %}
+  </div>
 </section>
 
 <section class="journal-list">
