@@ -1,20 +1,32 @@
 {% extends 'main_app/base.html' %} {% block content %}
-<!--I should make this a button with an image later  -->
-<a href="{% url 'home' %}">Back to Journals!!</a>
+<a href="{% url 'home' %}">Back to Journals</a>
+
 <section class="journal-detail">
   <h1>{{ journal.title }}</h1>
-  <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
 
-  {% if journal.image %}
-  <img
-    src="{{ journal.image.url }}"
-    alt="Journal image"
-    height="155px"
-    width="150px"
-  />
+  {% if journal.moods.all %}
+  <div class="journal-moods">
+    <h3>Feeling:</h3>
+    {% for mood in journal.moods.all %}
+    <div style="display: inline-block; margin: 5px; text-align: center">
+      <img
+        src="{{ mood.image.url }}"
+        alt="{{ mood.name }}"
+        width="50"
+        height="50"
+        title="{{ mood.name }}"
+      />
+      <br />
+      {{ mood.name }}
+    </div>
+    {% endfor %}
+  </div>
+  <p>{{ journal.journal }}</p>
+  {% endif %} {% if journal.image %}
+  <img src="{{ journal.image.url }}" alt="Journal image" width="300" />
   {% endif %}
 
-  <p>{{ journal.journal }}</p>
+  <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
 </section>
 
 {% endblock %}
