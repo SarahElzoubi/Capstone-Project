@@ -132,3 +132,20 @@ def journal_update(request, pk):
     else:
         form = JournalEntryForm(instance=journal)
     return render(request, 'journals/journal_update.html', {'form': form})
+
+
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import JournalEntry
+
+@login_required
+def journal_delete(request, pk):
+    journal = get_object_or_404(JournalEntry, pk=pk, user=request.user)
+
+    if request.method == 'POST':
+        journal.delete()
+        return redirect('home')  
+
+    
+    return render(request, 'journals/journal_confirm_delete.html', {'journal': journal})

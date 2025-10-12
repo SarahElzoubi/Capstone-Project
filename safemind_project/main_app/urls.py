@@ -13,4 +13,5 @@ urlpatterns = [
     path('journals/<int:pk>/', views.journal_detail, name='journal_detail'),
     path('journals/create/', views.journal_create, name='journal_create'),
     path('journal/<int:pk>/edit/', views.journal_update, name='journal_update'),
+    path('journal/<int:pk>/delete/', views.journal_delete, name='journal_confirm_delete'),
 ]
