@@ -138,4 +138,5 @@ MEDIA_URL='/media/' #the URL used to access  media in templates
 MEDIA_ROOT=os.path.join(BASE_DIR , 'media') #where to store the images physically in my server 
 
 
-
+# when logging out it will direct the user to the root path (login/signup) in index.html
+LOGOUT_REDIRECT_URL = '/' 

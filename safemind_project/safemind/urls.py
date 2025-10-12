@@ -22,6 +22,7 @@ from django.conf import settings #for picture media !!!
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_app.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 #only for development to let django serve uplaoded images (journa images in our case) directly from my laptop (local machine) , so we can see them while testing the app

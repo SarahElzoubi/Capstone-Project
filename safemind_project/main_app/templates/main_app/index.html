@@ -1,0 +1,22 @@
+{% extends 'main_app/base.html' %} {% block title %} Welcome to SafeMind
+{%endblock %} {% block content %}
+
+<h1>Welcome to SafeMind</h1>
+<p>Your personal mental health journal.</p>
+
+{% if form.errors %}
+<p>Invalid username or password. Please try again.</p>
+{% endif %}
+
+<section>
+  <form action="{% url 'home' %}" method="post">
+    <h1>Login</h1>
+    {% csrf_token %} {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <button type="submit">Login</button>
+  </form>
+</section>
+
+<p>Don't have an account? <a href="{% url 'signup' %}">Register now</a></p>
+
+{% endblock %}
