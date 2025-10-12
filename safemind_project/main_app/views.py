@@ -149,3 +149,32 @@ def journal_delete(request, pk):
 
     
     return render(request, 'journals/journal_confirm_delete.html', {'journal': journal})
+
+
+#Profile: 
+@login_required
+def profile(request):
+    user = request.user  # current logged-in user
+    return render(request, 'main_app/profile.html', {'user': user})
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            user = form.save()  # save the new password
+            update_session_auth_hash(request, user)  # keep user logged in
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('profile') 
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    
+    return render(request, 'profiles/change_password.html', {'form': form})
