@@ -8,6 +8,10 @@ from django.contrib.auth import login , authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib import messages
+from .forms import JournalEntryForm
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from .models import JournalEntry
 
 
 
@@ -85,10 +89,8 @@ def home(request):
     journals = JournalEntry.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'main_app/home.html', {'journals': journals})"""
 
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import JournalEntry
 
+@login_required
 def home(request):
     # Get only journals for the current logged-in user
     journals = JournalEntry.objects.filter(user=request.user).order_by('created_at')
@@ -98,3 +100,19 @@ def home(request):
 def journal_detail(request, pk):
     journal = get_object_or_404(JournalEntry, pk=pk, user=request.user)
     return render(request, 'journals/journal_detail.html', {'journal': journal})
+
+
+
+@login_required
+def journal_create(request):
+    if request.method == 'POST':
+        form = JournalEntryForm(request.POST, request.FILES)
+        if form.is_valid():
+            journal = form.save(commit=False)
+            journal.user = request.user
+            journal.save()
+            form.save_m2m()  # important for ManyToMany moods || saves the many to many relationship in the db 
+            return redirect('journal_detail', pk=journal.pk)
+    else:
+        form = JournalEntryForm()
+    return render(request, 'journals/journal_create.html', {'form': form})

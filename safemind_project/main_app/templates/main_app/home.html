@@ -1,4 +1,4 @@
-{% extends 'main_app/base.html' %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %}{% block content %}
 
 <section>
   <h1>My Journals</h1>
@@ -28,5 +28,15 @@
   <p>No journals yet.</p>
   {% endfor %}
 </section>
+
+<div>
+  <a href="{% url 'journal_create' %}" class="btn btn-primary"
+    ><img
+      src="{% static 'images/plus.jpg' %}"
+      alt="Add Journals"
+      height="50px"
+      width="50px"
+  /></a>
+</div>
 
 {% endblock %}

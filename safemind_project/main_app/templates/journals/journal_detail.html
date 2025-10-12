@@ -6,7 +6,12 @@
   <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
 
   {% if journal.image %}
-  <img src="{{ journal.image.url }}" alt="Journal image" />
+  <img
+    src="{{ journal.image.url }}"
+    alt="Journal image"
+    height="155px"
+    width="150px"
+  />
   {% endif %}
 
   <p>{{ journal.journal }}</p>

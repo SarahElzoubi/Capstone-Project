@@ -11,4 +11,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),  
     path('signup/', views.signup, name='signup'),
     path('journals/<int:pk>/', views.journal_detail, name='journal_detail'),
+    path('journals/create/', views.journal_create, name='journal_create')
 ]
