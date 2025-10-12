@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'safemind.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'gamingconsoles',
+       'NAME': 'safemind',
        "USER": "postgres",
        "PASSWORD": "000000",
        "HOST": "localhost",

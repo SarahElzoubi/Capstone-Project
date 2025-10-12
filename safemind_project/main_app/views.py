@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login , authenticate
 
 
 def home(request):
@@ -15,26 +15,32 @@ def about(request):
 
 
 def index(request):
-    form = AuthenticationForm()
-    #This is a shortcut function that combines loading a template, filling it with context, and returning an HTTP response.
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')  
+    else:
+        form = AuthenticationForm()
+    
     return render(request, 'main_app/index.html', {'form': form})
 
 
 def signup(request):
-    error_message = ''
+    error_message = None  # optional: to pass to template
     if request.method == 'POST':
-        # This is how to create a 'user' form object
-        # that includes the data from the browser
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            # This will add the user to the database
-            user = form.save()
-            # This is how we log a user in
-            login(request, user)
-            return redirect('index')
+            user = form.save()  # saves user to DB
+            login(request, user)  # log the user in
+            return redirect('home')
         else:
-            error_message = 'Invalid sign up - try again'
-    # A bad POST or a GET request, so render signup.html with an empty form
-    form = UserCreationForm()
-    context = {'form': form, 'error_message': error_message}
-    return render(request, 'main_app/signup.html', context)
+            error_message = "Please correct the errors below."
+    else:
+        form = UserCreationForm()  # make sure form is always defined
+
+    return render(request, 'main_app/signup.html', {
+        'form': form,
+        'error_message': error_message
+    })

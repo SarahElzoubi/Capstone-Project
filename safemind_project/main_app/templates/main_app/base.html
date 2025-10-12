@@ -39,6 +39,9 @@
           <li><a href="/about">About</a></li>
           {% endif %}
         </ul>
+        {% if user.is_authenticated %}
+        <h3>Welcome {{user.username}}</h3>
+        {% endif%}
       </nav>
     </header>
     <main>{% block content %} {% endblock %}</main>
