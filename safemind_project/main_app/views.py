@@ -72,6 +72,8 @@ def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
+            user = form.save(commit=False)
+            user.email = request.POST.get('email') # we added user's email
             user = form.save()  # saves user to DB
             login(request, user)  # log the user in
             return redirect('home')

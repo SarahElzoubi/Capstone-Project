@@ -9,6 +9,11 @@
   {% csrf_token %}
   <table>
     {{ form.as_table }}
+    <!--Here we added the email in the sign up page besides adjusting the views.py in the signup function-->
+    <tr>
+      <th><label for="email">Email:</label></th>
+      <td><input type="email" name="email" required /></td>
+    </tr>
   </table>
   <button type="submit">Register</button>
 </form>
