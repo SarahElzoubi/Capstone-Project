@@ -16,4 +16,6 @@ urlpatterns = [
     path('journal/<int:pk>/delete/', views.journal_delete, name='journal_confirm_delete'),
     path('profile/', views.profile, name='profile'),
     path('profile/change-password/', views.change_password, name='change_password'),
+    path('delete_account/', views.delete_account, name='delete_account'),
+
 ]
