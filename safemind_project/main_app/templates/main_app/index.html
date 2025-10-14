@@ -1,21 +1,30 @@
-{% extends 'main_app/base.html' %} {% load static %}{% block title %} Welcome to
-SafeMind {%endblock %} {% block content %}
+{% extends 'main_app/base.html' %} {% load static %} {%block head%}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />{%endblock%}
+{%block title %} Welcome to SafeMind {%endblock %} {% block content %}
+<div class="container_login">
+<div class="intro">
+  <h1>Welcome to Safe Mind</h1>
+  <h3>Let's start your personal mental health journal</h3>
+  <p></p>
+</div>
+    <div class="signin">
+      {% if form.errors %}
+      <p>Invalid username or password. Please try again.</p>
+      {% endif %}
 
-<h1>Welcome to SafeMind</h1>
-<p>Your personal mental health journal.</p>
+      <section>
+        <form action="" method="post">
+          <h1 class="log">Login</h1>
+          {% csrf_token %} {{ form.as_p }}
+          <button type="submit">Login</button>
+        </form>
+      </section>
 
-{% if form.errors %}
-<p>Invalid username or password. Please try again.</p>
-{% endif %}
-
-<section>
-  <form action="" method="post">
-    <h1>Login</h1>
-    {% csrf_token %} {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
-</section>
-
-<p>Don't have an account? <a href="{% url 'signup' %}">Register now</a></p>
-
-{% endblock %}
+      <p class="text">
+        Don't have an account? <a href="{% url 'signup' %}">Register now</a>
+      </p>
+    </div>
+    {% endblock %}
+  </div>
+</div>
+</div>

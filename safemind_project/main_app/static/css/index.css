@@ -1,0 +1,95 @@
+.intro{
+  text-align: center;
+}
+
+.signin{
+    background-color: rgba(48, 90, 143, 0.8);
+    border-radius: 20px;
+    width:450px;
+    height:500px;
+    padding-top: 50px;
+    padding-left:10px;
+    box-shadow: 5px 10px 8px 10px lightblue;
+    margin-right: 20px;
+   
+   
+}
+
+
+.signin .text{
+ 
+   margin-left:15px;
+}
+.signin:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.signin form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  background-color: #5bc4c4; 
+  padding: 2rem;
+  border-radius: 12px;
+  width: 350px;
+  margin: 0 auto;
+  margin-right:23px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  
+}
+.signin button{
+    align-self: center;
+    font-size: large;
+}
+/* Labels */
+form label {
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #2a4e7e;
+}
+
+/* Input fields */
+form input {
+  width: 85%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 2px solid rgba(48, 90, 143, 0.8);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Submit button */
+form button {
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  background-color: #305a8f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #1e4070;
+}
+
+/* Paragraphs inside form (from as_p) */
+form p {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.container_login{ 
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center; 
+  height:550px;
+  margin-top: 70px;
+  gap: 10px;
+}
+
+.log{
+    font-size: 30px;
+}

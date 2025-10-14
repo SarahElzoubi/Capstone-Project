@@ -9,7 +9,7 @@ html, body {
 }
 
 body{
-    background-image: url(../images/Full_Background.png);
+    background-image: url(../images/Full_Background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -98,7 +98,7 @@ body{
 
 .navbar .nav-links li a:hover,
 .navbar .nav-links li button.logout-btn:hover {
-    color: #00bfff;
+    color: #5bc4c4;
 }
 
 
