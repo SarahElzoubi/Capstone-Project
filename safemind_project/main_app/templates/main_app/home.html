@@ -1,53 +1,60 @@
-{% extends 'main_app/base.html' %}{% load static %}{% block content %}
-
-<section>
-  <h1>My Journals</h1>
-</section>
-
-<section class="page-header">
-  <div class="tips-section">
-    <h2>Tip of the day</h2>
-
-    {% if tip %}
-    <div class="tip-card">
-      <p>{{ tip.content }}</p>
-      <!-- <small>{{ tips.created_at|date:"M d, Y" }}</small>-->
-    </div>
-    {% else %}
-    <p>No tips available yet :(</p>
-    {% endif %}
-  </div>
-</section>
-
-<section class="journal-list">
-  {% for journal in journals %}
-  <a href="{% url 'journal_detail' journal.id %}">
-    <div class="journal-card" style="border: 2px solid blue; width: 230px">
-      {% if journal.image %}
-      <img
-        src="{{ journal.image.url }}"
-        class="journal-image"
-        width="100px"
-        height="100px"
-      />
-      {% endif %}
-      <h2>{{ journal.title }}</h2>
-      <p>Date & Time : {{ journal.created_at|date:"M d, Y H:i" }}</p>
-    </div>
-  </a>
-  {% empty %}
-  <p>No journals yet.</p>
-  {% endfor %}
-</section>
-
+{% extends 'main_app/base.html' %}{% load static %} {%block head%}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{%endblock%}{% block content %}
 <div>
-  <a href="{% url 'journal_create' %}" class="btn btn-primary"
-    ><img
-      src="{% static 'images/plus.jpg' %}"
-      alt="Add Journals"
-      height="50px"
-      width="50px"
-  /></a>
+  <section>
+    <h1>My Journals</h1>
+  </section>
 </div>
 
+<div>
+  <section class="page-header">
+    <div class="tips-section">
+      <h2>Tip of the day</h2>
+
+      {% if tip %}
+      <div class="tip-card">
+        <p>{{ tip.content }}</p>
+        <!-- <small>{{ tips.created_at|date:"M d, Y" }}</small>-->
+      </div>
+      {% else %}
+      <p>No tips available yet :(</p>
+      {% endif %}
+    </div>
+  </section>
+</div>
+<div class="home_container">
+  <div class="journal_card">
+    <section class="journal-list">
+      {% for journal in journals %}
+      <a href="{% url 'journal_detail' journal.id %}">
+        <div class="journal-card" style="border: 2px solid blue; width: 230px">
+          {% if journal.image %}
+          <img
+            src="{{ journal.image.url }}"
+            class="journal-image"
+            width="100px"
+            height="100px"
+          />
+          {% endif %}
+          <h2>{{ journal.title }}</h2>
+          <p>Date & Time : {{ journal.created_at|date:"M d, Y H:i" }}</p>
+        </div>
+      </a>
+      {% empty %}
+      <p>No journals yet.</p>
+      {% endfor %}
+    </section>
+  </div>
+
+  <div class="create_journal">
+    <a href="{% url 'journal_create' %}" class="btn btn-primary"
+      ><img
+        src="{% static 'images/plus.jpg' %}"
+        alt="Add Journals"
+        height="50px"
+        width="50px"
+    /></a>
+  </div>
+</div>
 {% endblock %}

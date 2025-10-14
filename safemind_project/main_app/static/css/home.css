@@ -1,0 +1,31 @@
+
+:root {
+  --body-image: url('../images/calm_Background_Blue.png'); /* name it anything you like */
+  --bg-size: cover;
+  --bg-repeat: no-repeat;
+  --bg-color:blueviolet;
+}
+
+body{
+    background-image: var(--body-image);
+    background-size:var(--bg-size);
+    background-repeat:  var(--bg-repeat);
+    background-attachment: fixed;
+    font-family: "Overlock", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+
+}
+
+
+.home_container{
+  background-image: url(../images/Background_simple.png);
+  height:70%;
+  width:75%;
+  margin:0 auto;
+  border-radius: 5%;
+  display: flex;
+  padding:20px;
+  justify-content: space-evenly;
+}

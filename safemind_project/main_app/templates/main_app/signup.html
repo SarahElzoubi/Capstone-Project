@@ -1,23 +1,42 @@
-{% extends 'main_app/base.html' %} {% load static %} {% block content %}
-<div>
-  <h1>Sign Up</h1>
+{% extends 'main_app/base.html' %} {% load static %} {%block head%}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+{%endblock%} {% block content %}
+<div class="signup_container">
+  <div>
+    <h1>Sign Up</h1>
+  </div>
+  {% if error_message %}
+  <div class="signup_error" class="errors">
+    <p>❕ {{ error_message }} ❕</p>
+  </div>
+      {% endif %}
+      <div class="signup_form">
+
+         <div class="tform"> <form action="{% url 'signup' %}" method="post" autocomplete="off">
+          {% csrf_token %}
+          <table>
+          
+            {{ form.as_table }}
+       
+            <!--Here we added the email in the sign up page besides adjusting the views.py in the signup function-->
+            <tr>
+              <th><label for="email" >Email:</label></th>
+              <td><input type="email" placeholder="e.g: Username@something.com"name="email" required  /></td>
+            </tr>
+          </table>
+               <button type="submit" >SignUp</button>
+          
+                </form>
+          </div>
+       
+        <div class="redirect_login">
+          <hr>
+          <p>
+            Already have an account? <a href="{% url 'index' %}">Login here</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-{% if error_message %}
-<p>{{ error_message }}</p>
-{% endif %}
-<form action="{% url 'signup' %}" method="post" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-    <!--Here we added the email in the sign up page besides adjusting the views.py in the signup function-->
-    <tr>
-      <th><label for="email">Email:</label></th>
-      <td><input type="email" name="email" required /></td>
-    </tr>
-  </table>
-  <button type="submit">Register</button>
-</form>
-
-<p>Already have an account? <a href="{% url 'index' %}">Login here</a></p>
-
-{% endblock %}
+ {% endblock %}
