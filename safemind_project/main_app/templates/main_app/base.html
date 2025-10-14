@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,44 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/png" href="" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/Safe_Mind_Logo.png' %}">  
     <title>{% block title %}Safe Mind{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
     {% block head %} {% endblock %}
   </head>
   <body>
     <header>
-      <!--
-      <div >
-       
-        <a href="/">
-          <img src="" alt="" />
-        </a>
-      </div>
-      -->
-      <nav>
-        <ul>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'profile' %}">Profile</a></li>
-          <li>
-            <form
-              action="{% url 'logout' %}"
-              method="post"
-              style="display: inline"
-            >
-              {% csrf_token %}
-              <button type="submit">Logout</button>
-            </form>
-          </li>
-          {% else %}
-          <li><a href="{% url 'index' %}">Login</a></li>
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="/about">About</a></li>
-          {% endif %}
-        </ul>
-        {% if user.is_authenticated %}
-        <h3>{{user.username}}</h3>
-        {% endif%}
+ 
+      <nav class="navbar">
+        <div class="container">
+          <ul class="nav-links">
+            <li>
+            <a href="{% url 'home' %}" class="logo">
+        <img src="{% static 'images/Safe_Mind_Logo.png' %}" alt="SafeMind Logo" height="70px" width="70px" />
+            </a>
+            </li>
+              
+             <li> <a  href="{% url 'profile' %}" title="Logged in as"><h3 >{{user.username}}</h3></li>
+      
+        
+            {% if user.is_authenticated %}
+             <li>
+              <form
+                action="{% url 'logout' %}"
+                method="post"
+                style="display: inline"
+              >
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">Logout</button>
+              </form>
+            </li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+    
+            {% else %}
+            <li><a href="{% url 'index' %}">Login</a></li>
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% endif %}
+          </ul>
+          
+        </div>
       </nav>
     </header>
     <main>{% block content %} {% endblock %}</main>

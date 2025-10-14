@@ -1,0 +1,115 @@
+main {
+    padding-top: 120px; 
+}
+
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body{
+    background-image: url(../images/Full_Background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: "Overlock", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+}
+
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    background-color: rgba(48, 90, 143, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+
+.navbar .container {
+    max-width: 1200px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+   /* font-family: "Lucida Console", "Courier New", monospace;*/
+    font-family: "Overlock", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: large;
+}
+
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .logo-img {
+    height: 70px;
+    width: auto;
+}
+
+/* Navigation links */
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navbar .nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-links li a,
+.navbar .nav-links li button.logout-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    font-family: "Overlock", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: larger;
+
+}
+
+.navbar .nav-links li a:hover,
+.navbar .nav-links li button.logout-btn:hover {
+    color: #00bfff;
+}
+
+
+.navbar .username {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Responsive: hide nav links on mobile */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none;
+    }
+}

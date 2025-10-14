@@ -20,7 +20,7 @@ from .models import JournalEntry
 import random
 
 def about(request):
-    return render(request,'about.html')
+    return render(request,'main_app/about.html')
 
 
 def index(request):
