@@ -1,95 +1,154 @@
-.intro{
+.intro{ 
   text-align: center;
-}
+   margin-right: 20px; 
+  }
 
-.signin{
-    background-color: rgba(48, 90, 143, 0.8);
-    border-radius: 20px;
-    width:450px;
-    height:500px;
-    padding-top: 50px;
-    padding-left:10px;
-    box-shadow: 5px 10px 8px 10px lightblue;
-    margin-right: 20px;
-   
-   
-}
+ .signin{ 
+  background-color: rgba(48, 90, 143, 0.8);
+   border-radius: 20px;
+   width:450px; 
+   height:800px;
+   padding-top: 50px;
+   padding-left:10px;
+   box-shadow: 5px 5px 8px 5px lightblue;
+   margin-right: 20px;
+   }
 
+  .signin .text{
+     margin-left:15px;
+     } 
 
-.signin .text{
- 
-   margin-left:15px;
-}
-.signin:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.signin form {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  background-color: #5bc4c4; 
-  padding: 2rem;
-  border-radius: 12px;
-  width: 350px;
-  margin: 0 auto;
-  margin-right:23px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  
-}
-.signin button{
-    align-self: center;
-    font-size: large;
-}
-/* Labels */
-form label {
-  font-weight: bold;
-  margin-top: 1rem;
-  color: #2a4e7e;
-}
+  .signin:hover {
+     transform: scale(1.05);
+     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
+    } 
 
-/* Input fields */
-form input {
-  width: 85%;
-  padding: 12px;
-  margin-top: 5px;
-  border: 2px solid rgba(48, 90, 143, 0.8);
-  border-radius: 8px;
-  font-size: 1rem;
-}
+  .signin form { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: start; 
+      background-color: #5bc4c4; 
+      padding: 2rem; 
+      border-radius: 12px; 
+      width: 350px; 
+      margin: 0 auto; 
+      margin-right:23px; 
+      box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+    }
+.signin button{ 
+        align-self: center; 
+        font-size: large; 
+      } 
+      /* Labels */ 
+ form label { 
+        font-weight: bold; 
+        margin-top: 1rem; 
+        color: #2a4e7e;      
+      }
+       /* Input fields */ 
+  form input { 
+        width: 85%;
+        padding: 12px; 
+        margin-top: 5px;
+        border: 2px solid rgba(48, 90, 143, 0.8);
+        border-radius: 8px; font-size: 1rem; }          
+      
+       /* Submit button */ 
+ form button { 
+        margin-top: 1.5rem; 
+        padding: 10px 20px; 
+        background-color: #305a8f; 
+        color: white; 
+        border: none; 
+        border-radius: 6px; 
+        cursor: pointer; 
+        transition: background 0.3s; 
+       }       
 
-/* Submit button */
-form button {
-  margin-top: 1.5rem;
-  padding: 10px 20px;
-  background-color: #305a8f;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-form button:hover {
-  background-color: #1e4070;
-}
-
-/* Paragraphs inside form (from as_p) */
-form p {
-  width: 100%;
-  margin-bottom: 1rem;
-}
+ form button:hover { 
+        background-color: #1e4070; 
+      }       
+       /* Paragraphs inside form (from as_p) */ 
+ form p { 
+        width: 100%; 
+        margin-bottom: 1rem; 
+      }      
 
 .container_login{ 
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center; 
-  height:550px;
-  margin-top: 70px;
-  gap: 10px;
-}
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+        height:700px; 
+        margin-top: 70px; 
+        gap:8px; 
+      }        
+.log{ 
+        font-size: 30px;
+       }        
+       
+.thought-bubble { 
+        position: relative; 
+        background: #f8d7da; /* light red bubble background */ 
+        color: #721c24; /* dark red text */ 
+        border: 2px solid #f5c2c7; 
+        border-radius: 25px; 
+        padding: 1rem 1.5rem; 
+        width: fit-content; 
+        max-width: 80%; 
+        margin: 1rem auto; 
+        font-weight: bold; 
+        font-size: 0.95rem; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+        animation: popIn 0.4s ease-out; 
+      }       
+        /* Little "bubble tail" */ 
+.thought-bubble::after { 
+          content: ""; 
+          position: absolute; 
+          bottom: -12px; 
+          left: 40px; 
+          width: 20px; 
+          height: 20px; 
+          background: #f8d7da; 
+          border: 2px solid #f5c2c7; 
+          border-top: none; 
+          border-left: none; 
+          transform: rotate(45deg); 
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        }        
 
-.log{
-    font-size: 30px;
+        /* Smooth entrance animation for the bubble*/ 
+        @keyframes popIn { 
+          from { opacity: 0; transform: scale(0.8) translateY(-10px); } 
+          to { opacity: 1; transform: scale(1) translateY(0); } } 
+
+        /* Optional subtle "bounce" on hover for the bubble*/
+        .thought-bubble:hover { 
+          transform: scale(1.03); 
+          transition: transform 0.2s ease; 
+        }
+
+        .hide_bullet ul { 
+          list-style-type: none; /* removes bullets from from's li elemetns*/ 
+          padding: 0; 
+          margin: 0; } 
+        /* .errors .errorlist { display: none; } .intro .has-error { margin-bottom: 200px; /* pushes form down to make room for bubble } */ 
+        .signin .has-error { margin-top: 50px; } /* pushes form down to make room for bubble */ 
+
+        .container_login .has-error{ 
+          height:1000px; 
+          gap:20px; 
+          padding:50px; 
+        }
+
+        .signin .has-error{ 
+          height:450px; padding:50px; 
+        } 
+        .errors .errorlist {
+           display: none; 
+          } /*.signin .has-error { margin-top: 50px; }*/
+
+         .container_login.error-up {
+           margin-top: 29px;
 }

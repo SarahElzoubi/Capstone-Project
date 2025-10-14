@@ -1,30 +1,38 @@
 {% extends 'main_app/base.html' %} {% load static %} {%block head%}
 <link rel="stylesheet" href="{% static 'css/index.css' %}" />{%endblock%}
 {%block title %} Welcome to SafeMind {%endblock %} {% block content %}
-<div class="container_login">
+<div class="container_login {% if form.non_field_errors %}error-up{% endif %}">
 <div class="intro">
   <h1>Welcome to Safe Mind</h1>
   <h3>Let's start your personal mental health journal</h3>
   <p></p>
 </div>
-    <div class="signin">
-      {% if form.errors %}
-      <p>Invalid username or password. Please try again.</p>
-      {% endif %}
 
-      <section>
+
+
+    <div class="signin hide_bullet">
+         {% if form.non_field_errors %}
+              <div class="error-message thought-bubble ">
+               {{ form.non_field_errors }}
+               </div>
+               
+    {% endif %}
+      <section class="hide_bullet errors" >
         <form action="" method="post">
-          <h1 class="log">Login</h1>
+          <h1 class="log" style="color:white;">Login</h1>
           {% csrf_token %} {{ form.as_p }}
+          
           <button type="submit">Login</button>
         </form>
       </section>
+    
 
       <p class="text">
-        Don't have an account? <a href="{% url 'signup' %}">Register now</a>
+        Don't have an account? <a href="{% url 'signup' %}" style="color:white">Register now</a>
       </p>
     </div>
-    {% endblock %}
   </div>
+   
 </div>
 </div>
+ {% endblock %}
