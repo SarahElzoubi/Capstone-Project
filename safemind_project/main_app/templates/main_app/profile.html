@@ -1,28 +1,52 @@
-{% extends 'main_app/base.html' %} {% load static %}{% block content %}
-<h1>Profile Page</h1>
-<section>
-  <p><strong>Username:</strong> {{ user.username }}</p>
-  <p><strong>Email:</strong> {{ user.email }}</p>
-  <p><strong>Date Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+{% extends 'main_app/base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+{% endblock %} {% block content %}
+<div class="profile-container">
+  <h1 class="profile-title">Profile Page</h1>
 
-  <div style="margin-top: 20px">
-    <a href="{% url 'change_password' %}">
-      <button type="button">Change Password</button>
-    </a>
-  </div>
-</section>
+  <div class="profile-card">
+    <div class="profile-picture">
+      <img
+        src="{% static 'images/default_profile.jpg' %}"
+        alt="Profile Picture"
+      />
+    </div>
 
-<section class="profile-section">
-    <form
-      method="POST"
-      action="{% url 'delete_account' %}"
-      onsubmit="return confirmDelete()"
-    >
-      {% csrf_token %}
-      <button type="submit" class="delete-btn">Delete Account</button>
-    </form>
+    <section class="profile-info">
+      <div class="profile-field">
+        <label>Username:</label>
+        <div class="profile-value">{{ user.username }}</div>
+      </div>
+
+      <div class="profile-field">
+        <label>Email:</label>
+        <div class="profile-value">{{ user.email }}</div>
+      </div>
+
+      <div class="profile-field">
+        <label>Date Joined:</label>
+        <div class="profile-value">{{ user.date_joined|date:"F d, Y" }}</div>
+      </div>
+
+      <div class="profile-actions">
+        <a href="{% url 'change_password' %}">
+          <button type="button" class="btn-primary">Change Password</button>
+        </a>
+      </div>
+
+      <div class="profile-actions">
+        <form
+          method="POST"
+          action="{% url 'delete_account' %}"
+          onsubmit="return confirmDelete()"
+        >
+          {% csrf_token %}
+          <button type="submit" class="btn-delete">Delete Account</button>
+        </form>
+      </div>
+    </section>
   </div>
-</section>
+</div>
 
 <script>
   function confirmDelete() {
@@ -31,5 +55,4 @@
     );
   }
 </script>
-
 {% endblock %}
