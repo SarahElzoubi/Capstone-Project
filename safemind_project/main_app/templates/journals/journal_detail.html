@@ -1,8 +1,25 @@
-{% extends 'main_app/base.html' %} {% block content %}
-<a href="{% url 'home' %}" title="Back to journals">Back to Journals</a>
+{% extends 'main_app/base.html' %} {% load static %} {%block head%}
+<link rel="stylesheet" href="{% static 'css/journals/journal_detail.css' %}" />
+{%endblock%}{% block content %}
+<div class="back_img">
+  <a href="{% url 'home' %}" title="Back to journals"
+    ><img
+      src="{% static 'images/Back_Arrow.png' %}"
+      alt="Back to Journals"
+      width="40px"
+      height="40px"
+  /></a>
+</div>
 
-<section class="journal-detail">
-  <h1>{{ journal.title }}</h1>
+<div class="upt_del">
+  <a href="{% url 'journal_update' journal.pk %}">Edit</a>
+  <a href="{% url 'journal_confirm_delete' journal.pk %}">Delete</a>
+</div>
+
+<div class="journal-detail">
+  <div class="j_title">
+    <h1>{{ journal.title }}</h1>
+  </div>
 
   {% if journal.moods.all %}
   <div class="journal-moods">
@@ -21,16 +38,20 @@
     </div>
     {% endfor %}
   </div>
-  <p>{{ journal.journal }}</p>
-  {% endif %} {% if journal.image %}
-  <img src="{{ journal.image.url }}" alt="Journal image" width="300" />
   {% endif %}
 
-  <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
-</section>
+  <div class="j_text">
+    <p>{{ journal.journal }}</p>
+  </div>
 
-<section>
-  <a href="{% url 'journal_update' journal.pk %}">Edit</a>
-  <a href="{% url 'journal_confirm_delete' journal.pk %}">Delete</a>
-</section>
+  <div class="j_image">
+    {% if journal.image %}
+    <img src="{{ journal.image.url }}" alt="Journal image" width="300" />
+    {% endif %}
+  </div>
+
+  <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
+</div>
+<!--End of journal_detail-->
+
 {% endblock %}
