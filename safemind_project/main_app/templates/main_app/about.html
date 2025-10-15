@@ -1,6 +1,73 @@
 {% extends 'main_app/base.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+<script src="{% static 'js/profile.js' %}" defer></script>
+<!--Finally added a js file yaaay-->
 {% endblock %} {% block content %}
-<h1>About Us</h1>
-<p>This is the About page for SafeMind.</p>
+<div class="video-background">
+  <video autoplay muted loop playsinline>
+    <source src="{% static 'videos/Falling_Leaves2.mp4' %}" type="video/mp4" />
+  </video>
+</div>
+
+
+<div class="content">
+  <h1>Welcome to SafeMind</h1>
+  <p>Your space to reflect, heal, and grow 💙</p>
+</div>
+
+
+<div class="about-container">
+  <div>
+    <h1>What is Safe Mind ?</h1>
+    <section>
+        <img  src="{% static 'images/Safe_Mind_Logo.png' %}" alt="Safe Mind Logo" height="400px" width="400px">
+    <p>
+      Safe Mind is a project that gives people a safe space to express 
+      what’s ontheir minds and in their hearts. It’s a mental health journaling app where
+      users can write about their thoughts, moods, and struggles — freely and
+      without judgment. So many people live with mental health challenges like
+      depression, anxiety, or personality disorders, often hiding their pain
+      behind a smile. This app is here to remind you that your feelings matter
+      and deserve to be heard — even if it’s just between you and your screen.
+      It’s a small step toward healing, self-understanding, and feeling a little
+      less alone. And it’s completely free, because taking care of your mental
+      health shouldn’t come with a price tag , expression yourself and letting your 
+      emotions out is the first step towards healing , so what are you waiting for ? 
+      Signup now!
+    </p>
+    <section/>
+  </div>
+
+
+  <!-- Moving images section -->
+<div class="moving-gallery">
+  <div class="moving-image" 
+       data-images="{% static 'images/MH1.jpg' %},{% static 'images/MH2.jpg' %},{% static 'images/MH3.jpg' %},{% static 'images/MH4.jpg' %}">
+  </div>
+</div>
+<p class="tagline">Building mindfulness — one journal at a time 🌱</p>
+</div>
+</div>
+<div style="height:20px"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const movingDiv = document.querySelector(".moving-image");
+  if (!movingDiv) return;
+
+
+  const images = movingDiv.dataset.images.split(",").map(s => s.trim());
+
+
+  movingDiv.style.backgroundImage = `url('${images[0]}')`;
+
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    movingDiv.style.backgroundImage = `url('${images[index]}')`;
+  }, 4000);
+});
+</script>
 {% endblock %}
+
+

@@ -3,7 +3,7 @@
   --body-image: url('../images/Background_Plants.png'); 
   --bg-size: cover;
   --bg-repeat: no-repeat;
-  --bg-color:blueviolet;
+  --bg-color:rgba(126, 211, 211, 0.3);
 }
 
 body{
@@ -27,42 +27,13 @@ body{
   align-items: center;
   height: 100vh;                   
   padding-top: 70px;                 
-          
   gap: 1rem;
   padding-bottom: 100px;
   overflow: hidden; 
   flex-shrink: 2;
   margin:0 auto;
-
-  /* display: flex; 
-        flex-direction: column; 
-        justify-content: center; 
-        align-items: center; 
-        height:700px;
-        gap:8px; 
-        margin-top:10px;
-        
-     */
-        /*  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; 
-  align-items: center;
-  min-height: calc(100vh - 80px);
-  padding-top: 80px; 
-  box-sizing: border-box;*/
         
 }
-
-
-
-/*Divs Inside main container:*/
-/*
-.signup_error{
-    background-color: brown;
-}*/
-
-/*.signup_form{ background-color: yellow;}*/
-
 
 
   .signup_form:hover {

@@ -1,6 +1,6 @@
 
 :root {
-  --body-image: url('../images/calm_Background_Blue.png'); /* name it anything you like */
+ --body-image: url('../images/calm_Background_Blue.png');
   --bg-size: cover;
   --bg-repeat: no-repeat;
   --bg-color:blueviolet;
