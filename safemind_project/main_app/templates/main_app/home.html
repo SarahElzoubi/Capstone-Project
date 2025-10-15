@@ -24,6 +24,15 @@
   </section>
 </div>
 
+<div class="create_journal" title="Add a journal">
+  <a href="{% url 'journal_create' %}" class="btn btn-primary"
+    ><img
+      src="{% static 'images/Plus_Sign.png' %}"
+      alt="Add Journals"
+      height="60px"
+      width="60px"
+  /></a>
+</div>
 <div class="home_container">
   {% for journal in journals %}
   <a href="{% url 'journal_detail' journal.id %}">
@@ -41,17 +50,8 @@
     </div>
   </a>
   {% empty %}
-  <p>No journals yet.</p>
+  <h1>No journals yet.</h1>
   {% endfor %}
 </div>
 
-<div class="create_journal">
-  <a href="{% url 'journal_create' %}" class="btn btn-primary"
-    ><img
-      src="{% static 'images/plus.jpg' %}"
-      alt="Add Journals"
-      height="50px"
-      width="50px"
-  /></a>
-</div>
 {% endblock %}
