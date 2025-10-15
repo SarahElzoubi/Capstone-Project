@@ -27,7 +27,7 @@ body{
   align-items: center;
   height: 100vh;                   
   padding-top: 70px;                 
-             
+          
   gap: 1rem;
   padding-bottom: 100px;
   overflow: hidden; 
@@ -67,9 +67,10 @@ body{
 
   .signup_form:hover {
      transform: scale(1.02);
+ 
     } 
 
-  .signup_form  { 
+.signup_form  { 
       
  background-color: #5bc4c4;
   padding: 3rem 1.5rem;             

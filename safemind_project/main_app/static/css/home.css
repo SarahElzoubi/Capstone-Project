@@ -19,13 +19,108 @@ body{
 }
 
 
-.home_container{
+  .home_container {
+ 
+  display: flex;          
+  flex-wrap: wrap;         
+  gap: 20px;               
+  justify-content: center;  
   background-image: url(../images/Background_simple.png);
-  height:70%;
   width:75%;
   margin:0 auto;
   border-radius: 5%;
+  padding:70px;
+  padding-bottom: 20px;
+  border: 2px solid rgba(48, 90, 143, 0.8);
+  margin-top: 30px;
+   box-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+ 
+}
+
+.home_container a > div {
+  background-color: ; /*Yes I left it on purpose I want the cards to be transparent*/
   display: flex;
-  padding:20px;
-  justify-content: space-evenly;
+  flex-direction: column;   /* stack image, title, date vertically inside each card */
+  border: 4px solid rgba(48, 90, 143, 0.8);
+  width: 300px;  
+  height:400px;            /* fixed width per card */
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+
+ 
+
+}
+.home_container a {
+     text-decoration: none;
+     color:rgba(48, 90, 143, 0.9);
+}
+.home_container a > div:hover {
+  transform: scale(1.05);
+}
+
+.journal_card{
+  border: 2px solid blue;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;   /* stack image, title, date vertically */
+  justify-content: space-between; /* evenly distribute content */
+  overflow: hidden;          /* cut off extr*/
+}
+.journal-image {
+  margin-bottom: 10px;
+  width: 200px;
+    height:200px;
+    align-self: center;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.journal-card h2{
+ font-size: 20px;
+}
+
+.journal-card p{
+ font-size: 15px;
+}
+
+.main_title {
+    text-align: center;
+}
+.main_title section p {
+    font-size:60px;
+    color:rgba(48, 90, 143, 0.8);
+    font-weight: 900 ;
+}
+
+.main_tip{
+    background-color: #cae3e0;
+    width:35%;
+    height:20%;
+    padding-bottom: 10px;
+     margin-left: 32%;
+     border-top-right-radius: 10px;
+     border-bottom-left-radius: 10px;
+}
+
+.main_tip section {
+    padding:20px;
+    box-shadow: 20px 20px 10px grey;
+
+}
+
+.main_tip section {
+    padding:20px;
+    box-shadow: 20px 20px 10px grey;
+
+}
+
+.main_tip:hover {
+  transform: scale(1.05);
 }
