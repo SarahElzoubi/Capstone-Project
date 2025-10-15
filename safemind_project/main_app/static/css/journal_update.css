@@ -156,3 +156,16 @@ body {
     gap:20px;
     text-align: left;
 }
+
+
+
+
+
+@media (max-width: 480px) {
+
+.form-buttons{
+margin-right:20%;
+
+}
+
+}

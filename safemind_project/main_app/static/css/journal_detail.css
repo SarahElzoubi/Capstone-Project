@@ -202,18 +202,69 @@ margin-top: 2px;
   height: 50px;
   width: 50px;
   background-image: url('../images/Closed_Trash.png');
-  background-size: cover;        /* ensures full fit */
-  background-repeat: no-repeat;  /* no tiling */
-  background-position: center;   /* centers image */
+  background-size: cover;       
+  background-repeat: no-repeat;  
+  background-position: center; 
   transition: transform 0.2s ease, background-image 0.2s ease;
 }
 
 .detail_delete:hover{
   transform: scale(1.03);
   background-image: url('../images/Open_Trash.png');
-  background-size: cover;        /* ensures full fit */
-  background-repeat: no-repeat;  /* no tiling */
+  background-size: cover;        
+  background-repeat: no-repeat;  
   background-position: center; 
   transition: transform 0.2s ease; 
 }
 
+
+
+
+@media (max-width: 768px) {
+
+.upt_del{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: start;
+  position:absolute;
+  width:100px;
+  margin-right: 50px;
+  margin-top:40px;
+ 
+
+ 
+}
+}
+
+
+@media (max-width: 480px) {
+
+.upt_del{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-content: start;
+  position:absolute;
+  width:100px;
+  margin-right: 80px;
+  margin-top:40px;
+ 
+
+ 
+}
+
+.detail_delete{
+  height: 50px;
+  width: 50px;
+  background-image: url('../images/Closed_Trash.png');
+  background-size: cover;       
+  background-repeat: no-repeat;  
+  background-position: center; 
+  transition: transform 0.2s ease, background-image 0.2s ease;
+  margin-right: 50px;
+}
+
+}

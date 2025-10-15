@@ -49,13 +49,13 @@
         align-self: center; 
         font-size: large; 
       } 
-      /* Labels */ 
+  
  form label { 
         font-weight: bold; 
         margin-top: 1rem; 
         color: #2a4e7e;      
       }
-       /* Input fields */ 
+      
   form input { 
         width: 85%;
         padding: 12px; 
@@ -63,7 +63,7 @@
         border: 2px solid rgba(48, 90, 143, 0.8);
         border-radius: 8px; font-size: 1rem; }          
       
-       /* Submit button */ 
+     
  form button { 
         margin-top: 1.5rem; 
         padding: 10px 20px; 
@@ -140,11 +140,11 @@
         }
 
         .hide_bullet ul { 
-          list-style-type: none; /* removes bullets from from's li elemetns*/ 
+          list-style-type: none; 
           padding: 0; 
           margin: 0; } 
-        /* .errors .errorlist { display: none; } .intro .has-error { margin-bottom: 200px; /* pushes form down to make room for bubble } */ 
-        .signin .has-error { margin-top: 50px; } /* pushes form down to make room for bubble */ 
+        
+        .signin .has-error { margin-top: 50px; } 
 
         .container_login .has-error{ 
           height:1000px; 
@@ -157,8 +157,128 @@
         } 
         .errors .errorlist {
            display: none; 
-          } /*.signin .has-error { margin-top: 50px; }*/
+          } 
 
          .container_login.error-up {
            margin-top: 29px;
+}
+
+
+/*----------------index.html media query--------------------*/
+
+/* Large screens - default styles already set */
+
+/* Tablets and small screens */
+@media (max-width: 1024px) {
+  .signin {
+    width: 400px;
+    height: auto;
+    padding-top: 40px;
+    padding-left: 10px;
+    margin-right: 10px;
+  }
+
+  .signin form {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .container_login {
+    height: auto;
+    padding: 40px 10px;
+    gap: 10px;
+  }
+
+  .intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .intro h3 {
+    font-size: 1.2rem;
+  }
+
+  .thought-bubble {
+    max-width: 90%;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .signin {
+    width: 90%;
+    height: auto;
+    padding-top: 30px;
+    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .signin form {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .container_login {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-top: 20px;
+    gap: 8px;
+  }
+
+  .intro h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .intro h3 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .thought-bubble {
+    max-width: 95%;
+    font-size: 0.9rem;
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* Extra small screens / Mobile portrait */
+@media (max-width: 480px) {
+  .signin {
+    width: 95%;
+    height: auto;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .signin form {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .intro h1 {
+    font-size: 1.5rem;
+  }
+
+  .intro h3 {
+    font-size: 0.9rem;
+  }
+
+  .container_login {
+    padding: 10px;
+    margin-top: 15px;
+    gap: 5px;
+  }
+
+  .thought-bubble {
+    font-size: 0.85rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  body {
+    background-size: cover;
+    background-position: center;
+  }
 }

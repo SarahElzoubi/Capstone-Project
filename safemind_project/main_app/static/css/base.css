@@ -20,7 +20,6 @@ body{
     font-size: larger;
 }
 
-/* Navbar styling */
 .navbar {
     width: 100%;
     background-color: rgba(48, 90, 143, 0.8);
@@ -41,7 +40,6 @@ body{
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
-   /* font-family: "Lucida Console", "Courier New", monospace;*/
     font-family: "Overlock", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -64,7 +62,7 @@ body{
     width: auto;
 }
 
-/* Navigation links */
+
 .navbar .nav-links {
     list-style: none;
     display: flex;
@@ -108,9 +106,58 @@ body{
     font-weight: bold;
 }
 
-/* Responsive: hide nav links on mobile */
+
+@media (max-width: 1024px) {
+    .navbar .nav-links li a,
+    .navbar .nav-links li button.logout-btn {
+        font-size: 0.95rem;
+    }
+}
 @media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px 10px; 
+        gap: 0.3rem;
+    }
+
     .navbar .nav-links {
-        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 0.3rem;
+    }
+
+    .navbar .nav-links li a,
+    .navbar .nav-links li button.logout-btn {
+        width: 100%;
+        padding: 6px 0;
+        font-size: 0.85rem;
+    }
+
+    .navbar .logo {
+        margin-bottom: 3px;
+        font-size: 1rem;
+    }
+
+    .navbar .logo img {
+        height: 40px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .navbar .nav-links li a,
+    .navbar .nav-links li button.logout-btn {
+        font-size: 0.8rem;
+        padding: 4px 0;
+    }
+
+    .navbar .logo img {
+        height: 35px;
+    }
+
+    .navbar .container {
+        gap: 0.2rem;
     }
 }
