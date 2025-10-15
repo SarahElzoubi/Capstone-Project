@@ -1,11 +1,67 @@
-{% extends 'main_app/base.html' %} {% block content %}
-<h2>
-  {% if form.instance.pk %}Edit Journal{% else %}Add A New Journal{% endif %}
-</h2>
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %} {{ form.as_p }}
-</br>
+{% extends 'main_app/base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/journal_create.css' %}" />
+{% endblock %} {% block content %}
+<div class="page-header">
+  <h1>Create a New Journal</h1>
+</div>
 
-   <button type="submit" class="btn btn-primary">Save</button>
+<form method="POST" class="journal-update-form" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="form-group">
+    {{ form.title.label_tag }}<br />
+    {{ form.title }}
+  </div>
+
+  <div class="form-group">
+    {{ form.journal.label_tag }}<br />
+    {{ form.journal }}
+  </div>
+
+  <div class="form-group">
+    {{ form.image.label_tag }}<br />
+    {{ form.image }}
+  </div>
+
+  {% if form.fields.moods %}
+  <div class="moods-section">
+    <label>Pick Feelings:</label><br />
+    <div class="moods-wrapper">
+      {% for mood in form.fields.moods.queryset %}
+      <label class="mood-card">
+        <input
+          type="checkbox"
+          name="moods"
+          value="{{ mood.id }}"
+          {%
+          if
+          mood
+          in
+          form.instance.moods.all
+          %}checked{%
+          endif
+          %}
+        />
+        <br />
+        <img
+          src="{{ mood.image.url }}"
+          alt="{{ mood.name }}"
+          width="50"
+          height="50"
+        />
+        <br />
+        {{ mood.name }}
+      </label>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="form-buttons">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{% url 'home' %}" class="cancel-btn">Cancel</a>
+  </div>
 </form>
+
+<div style="height: 40px"></div>
 {% endblock %}

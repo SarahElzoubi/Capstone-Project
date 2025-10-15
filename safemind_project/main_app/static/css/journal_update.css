@@ -1,0 +1,158 @@
+:root {
+  --body-image: url('../images/Plants.png');
+  --bg-size: cover;
+  --bg-repeat: no-repeat;
+  --bg-color: transparent;
+  --bp-space: 100px;
+}
+
+body {
+  background-image: var(--body-image);
+  background-size: var(--bg-size);
+  background-repeat: var(--bg-repeat);
+  background-attachment: fixed;
+  font-family: "Overlock", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+   /*padding-bottom: var(--bp-space);*/
+   
+}
+
+
+.page-header{
+    margin-left: 46%;
+    font-size: x-large;
+    font-weight: 400;
+    color:#1e4070;
+}
+/* Form Card */
+.journal-update-form {
+  background-color: beige;
+  width: 60%;
+  margin: 40px auto;
+  padding: 50px;
+  border-radius: 50px;
+  border: 5px solid rgba(30, 64, 112, 0.8);
+  box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+ top: 20px;
+  
+}
+
+/* Labels inside this form */
+.journal-update-form label {
+  font-weight: bold;
+  color: #04394d;
+  
+}
+
+/* Inputs & Textareas inside this form */
+.journal-update-form input[type="text"],
+.journal-update-form textarea,
+.journal-update-form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid rgba(30, 64, 112, 0.8);
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  margin-top:10px;
+}
+
+.journal-update-form textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+/* Checkbox moods */
+.journal-update-form div label img {
+  border-radius: 8px;
+  border: 3px solid rgba(30, 64, 112, 0.8);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin-top: 5px;
+  
+}
+
+.journal-update-form div label:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease;
+}
+
+
+/* Save button and Cancel link scoped to this form only */
+.journal-update-form button[type="submit"],
+.journal-update-form a.cancel-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  margin-left: 35%;
+  margin-top: 20px;
+  border-radius: 8px;
+  border: 3px solid rgba(30, 64, 112, 0.8);
+  background-color: #1e4070;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+ 
+}
+.journal-update-form button[type="submit"]{
+    height:50px;
+   
+}
+
+.journal-update-form button[type="submit"]:hover{
+  background-color: #04394d;
+  transform: scale(1.05);
+}
+
+
+
+.journal-update-form a.cancel-btn:hover {
+    background-color:  #1e4070;
+    color: white;
+    transform: scale(1.05);
+   
+}
+
+.journal-update-form a.cancel-btn {
+     height:25px;
+      position: absolute;
+
+  background-color: rgb(220, 220, 220);
+  color: #04394d;
+  margin-left: 15px;
+}
+
+.mood-card{
+    display: inline;
+}
+
+
+.moods-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow-x: auto;      
+  white-space: nowrap;    
+  padding-bottom: 10px;   
+  max-width: 100%;        
+}
+
+.moods-wrapper::-webkit-scrollbar {
+  height: 8px;            
+}
+.moods-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(30, 64, 112, 0.7); 
+  border-radius: 10px;
+}
+
+.moods-wrapper{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    text-align: left;
+}

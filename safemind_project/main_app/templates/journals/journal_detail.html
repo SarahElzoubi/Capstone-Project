@@ -1,30 +1,60 @@
 {% extends 'main_app/base.html' %} {% load static %} {%block head%}
-<link rel="stylesheet" href="{% static 'css/journals/journal_detail.css' %}" />
+<link rel="stylesheet" href="{% static 'css/journal_detail.css' %}" />
 {%endblock%}{% block content %}
 <div class="back_img">
   <a href="{% url 'home' %}" title="Back to journals"
     ><img
       src="{% static 'images/Back_Arrow.png' %}"
       alt="Back to Journals"
-      width="40px"
       height="40px"
+      width="40px"
   /></a>
 </div>
 
 <div class="upt_del">
-  <a href="{% url 'journal_update' journal.pk %}">Edit</a>
-  <a href="{% url 'journal_confirm_delete' journal.pk %}">Delete</a>
+  <div class="detail_edit">
+    <a href="{% url 'journal_update' journal.pk %}"
+      ><img
+        src="{% static 'images/Edit_Button.png' %}"
+        alt="Edit"
+        title="Edit"
+        height="50px"
+        width="45px"
+    /></a>
+  </div>
+  <a href="{% url 'journal_confirm_delete' journal.pk %}">
+    <div class="detail_delete" title="delete"></div>
+  </a>
 </div>
 
 <div class="journal-detail">
+  <p
+    style="
+      font-weight: 700;
+      font-size: xx-large;
+      padding-top: 0px;
+      margin-top: 10ppx;
+      display: inline;
+    "
+  >
+    Title:
+  </p>
   <div class="j_title">
-    <h1>{{ journal.title }}</h1>
+    <h2>{{ journal.title }}</h2>
   </div>
 
-  {% if journal.moods.all %}
-  <div class="journal-moods">
-    <h3>Feeling:</h3>
-    {% for mood in journal.moods.all %}
+  <p
+    style="
+      font-weight: 700;
+      font-size: x-large;
+      padding-top: 0px;
+      margin-top: 10ppx;
+    "
+  >
+    Feeling:
+  </p>
+  <div class="j-moods">
+    {% if journal.moods.all %} {% for mood in journal.moods.all %}
     <div style="display: inline-block; margin: 5px; text-align: center">
       <img
         src="{{ mood.image.url }}"
@@ -36,9 +66,8 @@
       <br />
       {{ mood.name }}
     </div>
-    {% endfor %}
+    {% endfor %} {% endif %}
   </div>
-  {% endif %}
 
   <div class="j_text">
     <p>{{ journal.journal }}</p>
@@ -50,8 +79,13 @@
     {% endif %}
   </div>
 
-  <p>Created at: {{ journal.created_at|date:"M d, Y H:i" }}</p>
+  <div class="j_c_date">
+    <p title="date and time of creation:">
+      Date & Time of creation: <br />{{ journal.created_at|date:"M d, Y H:i" }}
+    </p>
+  </div>
 </div>
+<div style="height: 30px"></div>
 <!--End of journal_detail-->
 
 {% endblock %}
