@@ -1,19 +1,106 @@
 # Capstone-Project
-CAPSTONE PROJECT
-Sarah_Elzoubi
 
+CAPSTONE PROJECT 
+Sarah_Elzoubi
 Safe Mind
 
-    1. PROJECT DESCRIPTION
+
+1. 🧠 Project Title
+
+ Safe Mind – A Mental health tracking Website/App
 
 
-This project aims to create a mental health tracking app , where the user can journal about their thoughts, moods , struggles , and emotions. 
-The purpose of this APP/Website is to encourage people to let out their emotions , a lot of people suffer from metal health issues/personalities disorders , (like depression , anxiety, bpd , bipolar ..etc) and most people put on a smile in public while suffering in silence this app encourages people to open up about their emotions even if it’s between the person and their phone, this app is free.
+---
+
+
+2. 📋 Project Description
+
+       This project aims to create a mental health tracking app , where the user can journal about their thoughts, moods , struggles , and emotions. 
+       The purpose of this APP/Website is to encourage people to let out their emotions , a lot of people suffer from mental health issues/personalities disorders , (like depression , anxiety, bpd , bipolar ..etc) and most people put on a smile in public while suffering in silence this Website/app encourages people to open up about their emotions even if it’s between the person and their phone, this app is free.
+
+
+---
+
+
+  3.   ERD For Mental-Heath-Tracker-App/Website (Safe Mind)
+ ![ERD](docs/erd.png)
+
+
+---
+
+
+4. 🚀 Project Features
+
+    • User authentication (signup, login, logout)
+    • 
+    • Create, edit, and delete journal entries
+    • 
+    • Mood tracking and analytics
+    • 
+    • Responsive design with a clean interface
+    • 
+    • Admin dashboard for content management
+      
+    • Delete Account 
+    • Change Password
+    • Display A Random Tip with each refresh 
+      
+
+
+---
+
+
+5. 🧰 Technologies Used
+
+Backend: Python, Django
+
+Frontend: HTML, CSS, JavaScript
+
+Database: PostgreSQL
+
+Other Tools: Git, GitHub, pipenv, pillow , psycopg2-binary 
 
 
 
+---
 
-    2. User Stories
+
+6. ⚙️ Installation and Setup
+
+# 1️⃣ Clone the repository
+git clone https://github.com/SarahElzoubi/Capstone-Project.git
+
+
+# 2️⃣ Navigate to project folder
+    • cd Capstone-Project
+    • cd safemind_project
+
+
+# 3️⃣ Create and activate virtual environment
+    • pipenv shell
+
+
+# 4️⃣ Install dependencies
+    1. pipenv install django 
+    2. pipenv install psycopg2-binary
+    3. pip install pillow 
+       
+       
+
+# 5️⃣ Apply migrations
+    • Linux: python3 manage.py migrate 
+    • Windows:python manage.py migrate
+
+# 6️⃣ Run the development server
+    • Linux: python3 manage.py runserver 
+    • windows: Python manage.py runserver
+      
+Then open http://127.0.0.1:8000/ in your browser
+
+---
+
+
+7. 📖 User Stories
        
     • As a Guest I should be able to access the main page of the App/Website
     • As a Guest I should be able to sign up to the App/Website and create an account
@@ -29,35 +116,53 @@ The purpose of this APP/Website is to encourage people to let out their emotions
     • As an Admin I have all the features of the User Account
     • As an Admin I monitor and manage content if necessary (optional feature for moderation or safety).
 
-    3. Resources 
+---
 
+
+      8. 🗃️ Resources 
+      
     • Emojis: https://emojipedia.org/ledger
     • Colors:https://colors.artyclick.com/color-shades-finder/?color=#000000
     • Colors:https://openreplay.com/tools/rgba-to-hex/
     • HTML , CSS & JS: https://www.w3schools.com/
     • Django:https://docs.djangoproject.com/en/5.2/
-        • Fonts: https://fonts.google.com/
-    •  HTML , Django , CSS, JS: https://www.google.com/
-    • CatCollector (GA):  https://github.com/MohammadJouza/GA-MoDDE-Cohort-   
-             2/tree/main/LC-Week-04/LC-W04D04/django-crud-app-cat-collector
-    4.  Future Work:
-
-    • Profile : edit profile button (Update Profile)
-      Include a profile model (User:1-1:Profile) where , user can upload their profile pic into.
       
-    • Including a contact us model where the user can contact us via a message request  and they would get a notification in the nav bar ( notification section) User: 1-many requests 
-      
-    • Add a Search bar to search for journals faster
 
-    • More animation with js 
-
-    • Including an AI powered chat bot 
-
-    • Future future : include psychologists and chat with them via text and maybe via video call for free.
+---
 
 
+9. 📸 Screenshots (optional)
 
-    5. Challenges : 
+![About1](docs/about_1.png)
+![About2](docs/about_2.png)
+![login](docs/login.png)
+![signup_1](docs/signup_1.png)
+![signup_2](docs/signup_2.png)
+![Home_1](docs/home_1.png)
+![Home_2](docs/home_2.png)
+![Addjournal_1](docs/addjournal_1.png)
+![Addjournal_2](docs/addjournal_2.png)
+![journal_added_home](docs/journal_added_home.png)
+![journal_details_1](docs/journal_detail_1.png)
+![journal_details_2](docs/journal_detail_2.png)
+![delete_icon](docs/delete_icon.png)
+![journal_delete](docs/journal_delete.png)
+![journal_delete](docs/journal_delete.png)
+![journal_delete](docs/journal_delete.png)
+![profile](docs/journal_delete.profile)
+![change_password](docs/change_password)
+![delete_account](docs/delete_account)
+
+
+
+
+
+
+
+---
+
+
+10. Challenges : 
        
     • Sign up page form wouldn't take margin-bottom ( too stuck on the bottom of the screen) , cliche but sometimes we all struggle with centreing a div 
 
@@ -72,38 +177,34 @@ The purpose of this APP/Website is to encourage people to let out their emotions
     • Redundant CSS tags in some big CSS files and overriding problem , fixed it by going through the code and reorganizing the classes.
 
 
+---
 
 
+ 11. Future Work:
+
+    • Profile : edit profile button (Update Profile)
+      Include a profile model (User:1-1:Profile) where , user can upload their profile pic into.
+      
+    • Including a contact us model where the user can contact us via a message request  and they would get a notification in the nav bar ( notification section) User: 1-many requests 
+      
+    • Add a Search bar to search for journals faster
+
+    • More animation with js 
+
+    • Including an AI powered chat bot 
+
+    • Future future : include psychologists and chat with them via text and maybe via video call for free.
+
+---
 
 
+12. 👩‍💻 Author
+
+Name: Sarah Elzoubi
+
+LinkedIn: https://www.linkedin.com/in/sarah-elzoubi-se/
 
 
-
-
-
-
-
-       
-    6. Installation guide:
-       
-    A. pipenv install django 
-    B. pipenv shell 
-    C. pipenv install psycopg2-binary -> install the PostgreSQL database 
-       adapter for Python
-       
-    D. pip install pillow -> for media like photos and videos
-    E. python3 manage.py runserver 
-       
-       
-       
-       note: if you add a new module you have to :
-    1. python3 manage.py makemigrations
-    2. python3 manage.py migrate
-       
-       
-ERD For Mental-Heath-Tracker-App/Website (Safe Mind): in the Capstone_Project_Plan _Final pdf
-       
-
-
+GitHub: SarahElzoubi
 
 
