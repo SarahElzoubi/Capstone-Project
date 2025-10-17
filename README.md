@@ -132,7 +132,6 @@ Then open http://127.0.0.1:8000/ in your browser
 
 
 9. 📸 Screenshots (optional)
-
 ![About1](docs/about_1.png)
 ![About2](docs/about_2.png)
 ![login](docs/login.png)
@@ -147,11 +146,11 @@ Then open http://127.0.0.1:8000/ in your browser
 ![journal_details_2](docs/journal_detail_2.png)
 ![delete_icon](docs/delete_icon.png)
 ![journal_delete](docs/journal_delete.png)
-![journal_delete](docs/journal_delete.png)
-![journal_delete](docs/journal_delete.png)
-![profile](docs/journal_delete.profile)
-![change_password](docs/change_password)
-![delete_account](docs/delete_account)
+![change_password](docs/change_password.png)
+![delete_account](docs/confirm_delete_account.png)
+
+
+
 
 
 
