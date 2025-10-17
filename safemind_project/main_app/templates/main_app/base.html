@@ -26,10 +26,11 @@
             </a>
             </li>
               
-             <li> <a  href="{% url 'profile' %}" title="Logged in as"><h3 >{{user.username}}</h3></li>
+             
       
         
             {% if user.is_authenticated %}
+            <li> <a  href="{% url 'profile' %}" title="Logged in as"><h3 >{{user.username}}</h3></li>
              <li>
               <form
                 action="{% url 'logout' %}"
