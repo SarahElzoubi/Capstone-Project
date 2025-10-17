@@ -103,17 +103,29 @@ Then open http://127.0.0.1:8000/ in your browser
 7. 📖 User Stories
        
     • As a Guest I should be able to access the main page of the App/Website
+   
     • As a Guest I should be able to sign up to the App/Website and create an account
+   
     • As a User I should be able to Sign in to my App/Website Account
+   
     • As a User I can Access my profile page , About page , and  the main page
-    • As a User I should receive a daily reminder in my main page 
+   
+    • As a User I should receive a daily reminder in my main page
+   
     • As a User I should be able to create a Journal entry that I can journal in
+   
     • As a User I can see my previous Journal entries in my main page
+   
     • As a User I should be able to delete and update and of my journal entries
+   
     • As a User I should be able to Logout of my Account
+   
     • As a User I should be able to delete my account from my profile
-    • As the Admin I can delete,update, and create accounts 
+   
+    • As the Admin I can delete,update, and create accounts
+   
     • As an Admin I have all the features of the User Account
+   
     • As an Admin I monitor and manage content if necessary (optional feature for moderation or safety).
 
 ---
